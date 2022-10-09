@@ -6,13 +6,12 @@
     "baseUrl": "./",
     "defaultKernelName": "python",
     "faviconUrl": "./lab/favicon.ico",
-    
       "litePluginSettings": {
         "@jupyterlite/pyolite-kernel-extension:kernel": {
           "pyodideUrl": "https://ruoyu0088.github.io/pyscript_demo/pyodide/pyodide.js"
         }
-      },    
-        "federated_extensions": [
+      },       
+    "federated_extensions": [
       {
         "extension": "./extension",
         "liteExtension": false,
@@ -20,17 +19,109 @@
         "name": "@jupyter-widgets/jupyterlab-manager"
       },
       {
+        "liteExtension": false,
+        "load": "static/remoteEntry.cdf08c015a8192358158.js",
+        "mimeExtension": "./mimeExtension",
+        "name": "@jupyterlab/fasta-extension",
+        "style": "./style"
+      },
+      {
+        "liteExtension": false,
+        "load": "static/remoteEntry.b75c764d727b50009261.js",
+        "mimeExtension": "./mimeExtension",
+        "name": "@jupyterlab/geojson-extension",
+        "style": "./style"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": true,
+        "load": "static/remoteEntry.4ba93726087006d2f61b.js",
+        "name": "@jupyterlite/p5-kernel-extension",
+        "style": "./style"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": true,
+        "load": "static/remoteEntry.f69e84c5aaec83c179ca.js",
+        "name": "@jupyterlite/xeus-lua-kernel",
+        "style": "./style"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": true,
+        "load": "static/remoteEntry.960d5d0f875a651e597f.js",
+        "name": "@jupyterlite/xeus-sqlite-kernel",
+        "style": "./style"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": true,
+        "load": "static/remoteEntry.6e7c2ba8038680301a15.js",
+        "name": "@jupyterlite/xeus-wren-kernel",
+        "style": "./style"
+      },
+      {
         "extension": "./extension",
         "liteExtension": false,
-        "load": "static/remoteEntry.b9ede0b76564b4f7bc06.js",
-        "name": "@pyviz/jupyterlab_pyviz",
-        "style": "./style"
+        "load": "static/remoteEntry.8a4c97071917cf84832f.js",
+        "name": "@telamonian/theme-darcula"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.145e469029155b53b350.js",
+        "name": "@timkpaine/jupyterlab_miami_nights"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.99c828c2ee313756f7dc.js",
+        "name": "bqplot"
       },
       {
         "extension": "./extension",
         "liteExtension": false,
         "load": "static/remoteEntry.5ffed1c4b9b9ce1f7b00.js",
         "name": "ipycanvas"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.176149dcbfb677ea36fb.js",
+        "name": "ipyevents"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.826666d2e0fe36d6609e.js",
+        "name": "jupyter-leaflet"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.6b5d328600b8f618f724.js",
+        "name": "jupyter-matplotlib"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.a7ffe26201ed2eee8505.js",
+        "name": "jupyter-wren-syntax",
+        "style": "./style"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.8f896d6ad92823566c46.js",
+        "name": "jupyterlab-drawio",
+        "style": "./style"
+      },
+      {
+        "extension": "./extension",
+        "liteExtension": false,
+        "load": "static/remoteEntry.249e02ea9427f8cca2ad.js",
+        "mimeExtension": "./mimeExtension",
+        "name": "jupyterlab-plotly"
       },
       {
         "extension": "./extension",
