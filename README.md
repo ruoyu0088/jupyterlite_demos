@@ -1,29 +1,72 @@
-# JupyterLite Demo
+# ウェブブラウザで動くPython開発環境JupyterLiteのデモ
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://jupyterlite.github.io/demo)
+このデモはJupyterLiteをGitHub Pagesに配備した静的サイトです。 Firefox 90+或いはChromium 89+で次のリンクを開いてください。
 
-JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
+**https://ruoyu0088.github.io/jupyterlite_demos/lab/index.html**
 
-## ✨ Try it in your browser ✨
+自分のJupyterLiteサイトを作るには次のリンクに参考してください。
 
-➡️ **https://jupyterlite.github.io/demo**
+https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
 
-![github-pages](https://user-images.githubusercontent.com/591645/120649478-18258400-c47d-11eb-80e5-185e52ff2702.gif)
+# デモ一覧
 
-## Requirements
+## PySATを利用したパズルソルバー
 
-JupyterLite is being tested against modern web browsers:
+PySATでいろいろなパズルを解きます。
 
-- Firefox 90+
-- Chromium 89+
+### 数独
 
-## Deploy your JupyterLite website on GitHub Pages
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fsudoku_solver.ipynb
 
-Check out the guide on the JupyterLite documentation: https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
+![数独ソルバー](images/sudoku.png)
 
-## Further Information and Updates
+### 四角に切れ
 
-For more info, keep an eye on the JupyterLite documentation:
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fshikaku_solver.ipynb
 
-- How-to Guides: https://jupyterlite.readthedocs.io/en/latest/howto/index.html
-- Reference: https://jupyterlite.readthedocs.io/en/latest/reference/index.html
+![四角に切れ](images/shikaku.png)
+
+### お絵かきロジック
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fnonogram_solver.ipynb
+
+![お絵かきロジック](images/nonogram.png)
+
+
+## 最適化
+
+### テオ・ヤンセン機構
+
+SciPyの最適化ツールとSymPyの符号計算でテオ・ヤンセン機構の動きを計算します。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Frobot_walk.ipynb
+
+![テオ・ヤンセン機構](images/linkage.png)
+
+## 描画
+
+### ジュリア集合
+
+高速演算のWASMファイルをcffiでロードし、Pythonから呼び出し、ジュリア集合のリアルタイム計算を実現しました。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fjulia_set.ipynb
+
+![ジュリア集合](images/julia.gif)
+
+### バラの花
+
+Plotlyの3D描画機能でバラの花を作りました。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fplots_01.ipynb
+
+![バラの花](images/rose.png)
+
+## Graph
+
+### 箱入り娘パズル
+
+SciPyの最短パス計算関数`dijkstra()`を利用して、箱入り娘パズルの最短解を求めます。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=graph%2Fklotski_solver.ipynb
+
+![箱入り娘パズル](images/klotski.png)
