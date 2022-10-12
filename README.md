@@ -53,6 +53,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fjulia_set.ipynb
 
 ![ジュリア集合](images/julia.gif)
 
+### L-System
+
+文字列の入れ替えでフラクタルを描画します。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Flsystem.ipynb
+
+![L-System](images/lsystem.png)
+
 ### バラの花
 
 Plotlyの3D描画機能でバラの花を作りました。
