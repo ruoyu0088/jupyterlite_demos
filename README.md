@@ -78,3 +78,11 @@ SciPyの最短パス計算関数`dijkstra()`を利用して、箱入り娘パズ
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=graph%2Fklotski_solver.ipynb
 
 ![箱入り娘パズル](images/klotski.png)
+
+## Simulation
+
+### 蟻群
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fants.ipynb
+
+![蟻群](images/ants.gif)
