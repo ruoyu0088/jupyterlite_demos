@@ -86,3 +86,11 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=graph%2Fklotski_solver.ip
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fants.ipynb
 
 ![蟻群](images/ants.gif)
+
+### Particle Life
+
+粒子の間に重力と反重力を加え、運動方程式で位置を計算すると、面白い動きになりました。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fparticle_life.ipynb
+
+![Particle Life](images/particle_life.gif)
