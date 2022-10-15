@@ -94,3 +94,13 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fants.ipynb
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fparticle_life.ipynb
 
 ![Particle Life](images/particle_life.gif)
+
+## 幾何学
+
+### 平面幾何学スクリプト
+
+SolveSpaceの幾何学エンジンを使った幾何学のスクリプトです。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=geometry%2Fgeometry_script.ipynb
+
+![幾何学スクリプト](images/geometry_script.png)
