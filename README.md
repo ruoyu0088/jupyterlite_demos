@@ -69,6 +69,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fplots_01.ipynb
 
 ![バラの花](images/rose.png)
 
+### Prime Climb
+
+[Prime Climb](https://mathforlove.com/games/prime-climb/)は掛け算や因数分解などを勉強するための算数ゲームです。このNotebookはBokehを使ってPrime Climbのゲームボードを描画します。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fprime_climb_draw.ipynb
+
+![prime climb](images/prime_climb.png)
+
 ## Graph
 
 ### 箱入り娘パズル
