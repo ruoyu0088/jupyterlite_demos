@@ -32,6 +32,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fnonogram_solver.i
 
 ![お絵かきロジック](images/nonogram.png)
 
+### ナンバーリンク
+
+ナンバーリンクは、盤面にある同じ数字同士を線でつなぐペンシルパズルです。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fnumber_link.ipynb
+
+![ナンバーリンク](images/number_link.png)
+
 
 ## 最適化
 
