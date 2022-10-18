@@ -69,6 +69,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Flsystem.ipynb
 
 ![L-System](images/lsystem.png)
 
+### 反復関数系フラクタル
+
+複数の三角形からフラクタルを描画します。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fifs.ipynb
+
+![IFS](images/ifs.png)
+
 ### バラの花
 
 Plotlyの3D描画機能でバラの花を作りました。
