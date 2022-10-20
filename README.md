@@ -41,6 +41,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fnumber_link.ipynb
 ![ナンバーリンク](images/number_link.png)
 
 
+### スリザーリンク
+
+スリザーリンク（英: Slitherlink）は格子点の間に記された数字を頼りに、格子点の間を水平な線分（横線）または垂直な線分（縦線）で結び、盤面に一つの閉じた輪（単一閉曲線）を書き上げるペンシルパズルの一種である。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fslitherlink.ipynb
+
+![](images/slitherLink.png)
+
 ## 最適化
 
 ### テオ・ヤンセン機構
