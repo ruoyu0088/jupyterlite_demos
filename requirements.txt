@@ -1,6 +1,7 @@
 bqplot
 ipycanvas>=0.9.1
 ipyevents>=2.0.1
+jupyterlab-widgets==3.0.3
 ipywidgets>=8.0.0,<9
 pythreejs==2.4.1
 ipyleaflet
