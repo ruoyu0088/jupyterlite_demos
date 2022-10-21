@@ -49,6 +49,16 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fslitherlink.ipynb
 
 ![](images/slitherLink.png)
 
+### 3D磁石キューブパズル
+
+次のような3D磁石キューブパズルを解けます。
+
+![](images/magnetcube.jpg)
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fmagnetcube.ipynb
+
+![](images/magnetcube.png)
+
 ## 最適化
 
 ### テオ・ヤンセン機構
