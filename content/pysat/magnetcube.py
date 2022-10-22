@@ -271,6 +271,9 @@ class BoxScene:
             controls=[OrbitControls(controlling=self.camera)],
         )
 
+    def __len__(self):
+        return len(self.objects)
+
     def add_box(self, position):
         position = tuple(position)
         if self.objects[position]:
@@ -386,7 +389,7 @@ class BlockPlacer:
         try:
             block_names = {27: None, 15: "ZTLV", 11: "ZLV"}[length]
         except KeyError:
-            self.message_label.value = "Only support 11, 15 or 2 blocks"
+            self.message_label.value = "Only support 11, 15 or 27 blocks"
             return
         self.target.solve(block_names)
         if self.target.solution:
@@ -449,16 +452,21 @@ class BlockPlacer:
 
         with ipycanvas.hold_canvas(canvas):
             canvas.clear()
-            canvas.fill_style = "#cccccc"
 
-            for x, y, z in self.box_scene.objects:
+            locations = list(self.box_scene.objects.keys())
+            locations = sorted(locations, key=lambda x:x[2], reverse=True)
+            for x, y, z in locations:
                 x += n // 2
                 y += n // 2
                 y = n - 1 - y
+                x = margin + x * size
+                y = margin + y * size
                 if z == self.layout_input.value:
-                    x = margin + x * size
-                    y = margin + y * size
+                    canvas.fill_style = "#cccccc"
                     canvas.fill_rect(x, y, size, size)
+                elif z == self.layout_input.value - 1:
+                    canvas.fill_style = "#777777"
+                    canvas.fill_circle(x + size / 2, y + size / 2, 2)
 
             for i in range(n + 1):
                 canvas.stroke_line(
@@ -469,6 +477,8 @@ class BlockPlacer:
                 canvas.stroke_line(
                     size * i + margin, margin, size * i + margin, height - margin
                 )
+
+        self.message_label.value = f'{len(self.box_scene)} cubes'
 
 
 if __name__ == "__main__":
