@@ -4,6 +4,7 @@ ipyevents>=2.0.1
 jupyterlab-widgets==3.0.3
 ipywidgets>=8.0.0,<9
 pythreejs==2.4.1
+jupyter_bokeh==3.0.4
 ipyleaflet
 ipympl>=0.8.2
 jupyterlab~=3.4.7

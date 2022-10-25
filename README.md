@@ -146,3 +146,13 @@ SolveSpaceの幾何学エンジンを使った幾何学のスクリプトです�
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=geometry%2Fgeometry_script.ipynb
 
 ![幾何学スクリプト](images/geometry_script.png)
+
+## 制御
+
+### N重振り子制御
+
+SymPyでN重振り子の運動方程式を導出し、線形化させ、SciPyで制御ゲインの計算とODEソルバーでフィードバック制御をシミュレーションします。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=control%2Fpendulum_control.ipynb
+
+![N-pendulum](images/N-pendulum.gif)
