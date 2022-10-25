@@ -147,6 +147,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=geometry%2Fgeometry_scrip
 
 ![幾何学スクリプト](images/geometry_script.png)
 
+### Strandbeest歩くロボット
+
+SolveSpaceを使った幾何学のスクリプトで歩くロボットのアニメーションを作成しました。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=geometry%2Fstrandbeest_walk.ipynb
+
+![Strandbeest歩くロボット](images/strandbeest_walk.gif)
+
 ## 制御
 
 ### N重振り子制御

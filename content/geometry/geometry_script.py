@@ -3,7 +3,8 @@ import random
 import re
 import math
 import numpy as np
-from python_solvespace import SolverSystem, make_quaternion
+from python_solvespace import make_quaternion
+from solvespace import SolverSystem
 
 
 def point(name="point"):
@@ -476,11 +477,26 @@ class GeometrySolver:
         self.items[name] = line
         return line
 
-    def show(self):
+    def show(self, notebook_handle=False):
         from bokeh.io import show
 
-        fig = BokehPlot(self)
-        show(fig.figure)
+        self.fig = BokehPlot(self)
+        if notebook_handle:
+            self.figure_handle = show(self.fig.figure, notebook_handle=True)
+        else:
+            show(self.fig.figure)
+            
+    def update(self):
+        from bokeh.io import push_notebook
+        fig = BokehPlot(self, show=False)
+        if self.fig.source_points is not None:
+            self.fig.source_points.data = dict(fig.source_points.data)
+        if self.fig.source_line is not None:
+            self.fig.source_line.data = dict(fig.source_line.data)
+        if self.fig.source_circle is not None:
+            self.fig.source_circle.data = dict(fig.source_circle.data)
+        
+        push_notebook(handle=self.figure_handle)
 
     def get_position(self, q):
         if isinstance(q, str):
@@ -495,6 +511,9 @@ class GeometrySolver:
 
     def get_param(self, p):
         return self.sys.params(p.params)[0]
+    
+    def set_param(self, p, params):
+        self.sys.set_params(self.items[p].h.params, params)
 
     def get_length(self, q):
         line = self.items[q]
@@ -576,6 +595,7 @@ class BokehPlot:
         line_color="#1f77b4",
         cline_width=1,
         cline_color="#2ca02c",
+        show=True,
         **kw,
     ):
         self.point_size = point_size
@@ -586,7 +606,8 @@ class BokehPlot:
         self.cline_color = cline_color
         self.solver = solver
         self.load_data()
-        self.create_figure()
+        if show:
+            self.create_figure()
 
     def load_data(self):
         from bokeh.models import ColumnDataSource
@@ -665,24 +686,35 @@ class BokehPlot:
 from IPython.core import magic_arguments
 from IPython.core.magic import register_cell_magic
 
+'''
+        magic_arguments.argument('-b', '--block', action="store_const",
+            const=True, dest='block',
+            help="use blocking (sync) execution",
+        ),
+'''
+
 out_argument = magic_arguments.argument('-o', '--output',
             help='Specify a name for the result, default value is "g"')
+handle_argument = magic_arguments.argument('-h', '--handle', action='store_const', const=True)
 
 @register_cell_magic
 @magic_arguments.magic_arguments()
 @out_argument
+@handle_argument
 def gscript(line, cell):
     from IPython.core.interactiveshell import InteractiveShell
     sh = InteractiveShell.instance()
     args = magic_arguments.parse_argstring(gscript, line)
-    if isinstance(args, dict):
-        name = args.get("outptu", None)
-    else:
-        name = getattr(args, "output", None)
+    name = args.output
+    handle = args.handle
+        
     if name is None:
         name = "g"
 
     import geometry_script as gs
     g = gs.GeometrySolver(cell)
     sh.user_ns[name] = g
-    g.show()
+    if handle:
+        g.show(notebook_handle=True)
+    else:
+        g.show()
