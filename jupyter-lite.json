@@ -15,6 +15,13 @@
       {
         "extension": "./extension",
         "liteExtension": false,
+        "load": "static/remoteEntry.562cb38782c61606e964.js",
+        "name": "@bokeh/jupyter_bokeh",
+        "style": "./style"
+      },      
+      {
+        "extension": "./extension",
+        "liteExtension": false,
         "load": "static/remoteEntry.1116b848a6f7126bf3e9.js",
         "name": "@jupyter-widgets/jupyterlab-manager"
       },
