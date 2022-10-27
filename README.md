@@ -1,57 +1,65 @@
-# ウェブブラウザで動くPython開発環境JupyterLiteのデモ
+[![en](https://img.shields.io/badge/lang-English-red.svg)](https://github.com/ruoyu0088/jupyterlite_demos/blob/main/README.md)
+[![cn](https://img.shields.io/badge/lang-Chinese-green.svg)](https://github.com/ruoyu0088/jupyterlite_demos/blob/main/README_cn.md)
+[![jp](https://img.shields.io/badge/lang-Japanese-yellow.svg)](https://github.com/ruoyu0088/jupyterlite_demos/blob/main/README_jp.md)
 
-このデモはJupyterLiteをGitHub Pagesに配備した静的サイトです。 Firefox 90+或いはChromium 89+で次のリンクを開いてください。
+# Demonstration of JupyterLite (A python environment in the browser)
+
+This demo website is a static website that deploys JupyterLite on GitHub Pages. Please use Firefox 90+ or ​​Chromium 89+ browser to open the links below.
 
 **https://ruoyu0088.github.io/jupyterlite_demos/lab/index.html**
 
-自分のJupyterLiteサイトを作るには次のリンクに参考してください。
+If you want to create your own JupyterLite website, please reference the link below:
 
 https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
 
-# デモ一覧
+# Demos
 
-## PySATを利用したパズルソルバー
+## Solve puzzle games by PySAT
 
-PySATでいろいろなパズルを解きます。
+### Sudoku solver
 
-### 数独
+When entering numbers on the Sudoku panel, the solution results are displayed in real time.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fsudoku_solver.ipynb
 
-![数独ソルバー](images/sudoku.png)
+![Sudoku Solver](images/sudoku.png)
 
-### 四角に切れ
+### Shikaku solver
+
+Each number represents the area of ​​the rectangle that contains that number.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fshikaku_solver.ipynb
 
-![四角に切れ](images/shikaku.png)
+![Square (shikaku) solver](images/shikaku.png)
 
-### お絵かきロジック
+### Nonogram Solver
+
+Nonogram is a logic game that draws black and white bitmaps in a guessing way. In a grid, each row and column has a set of numbers, players need to fill in or leave blanks according to them, and finally draw a picture.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fnonogram_solver.ipynb
 
-![お絵かきロジック](images/nonogram.png)
+![Nonogram Solver](images/nonogram.png)
 
-### ナンバーリンク
+### Number link solver
 
-ナンバーリンクは、盤面にある同じ数字同士を線でつなぐペンシルパズルです。
+Connect the same numbers with horizontal and vertical lines that pass through the centers of all white squares. The lines cannot cross.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fnumber_link.ipynb
 
-![ナンバーリンク](images/number_link.png)
+![number link solver](images/number_link.png)
 
 
-### スリザーリンク
+### Slitherlink solver
 
-スリザーリンク（英: Slitherlink）は格子点の間に記された数字を頼りに、格子点の間を水平な線分（横線）または垂直な線分（縦線）で結び、盤面に一つの閉じた輪（単一閉曲線）を書き上げるペンシルパズルの一種である。
+Draw a loop connecting adjacent black dots, each number represents the number of four edges in the loop around the square.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fslitherlink.ipynb
 
-![](images/slitherLink.png)
+![Slitherlink solver](images/slitherLink.png)
 
-### 3D磁石キューブパズル
+### 3D Magnet Block Puzzle
 
-次のような3D磁石キューブパズルを解けます。
+Use several Tetris-like shapes to form the specified 3D shape:
 
 ![](images/magnetcube.jpg)
 
@@ -59,107 +67,109 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=pysat%2Fmagnetcube.ipynb
 
 ![](images/magnetcube.png)
 
-## 最適化
+## Optimize
 
-### テオ・ヤンセン機構
+### Walking Bionic Beast
 
-SciPyの最適化ツールとSymPyの符号計算でテオ・ヤンセン機構の動きを計算します。
+Use SciPy's optimization tools and SymPy's symbolic arithmetic capabilities to calculate the walking motion of the Theo Jansen bionic beast.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Frobot_walk.ipynb
 
-![テオ・ヤンセン機構](images/linkage.png)
+![Walking Bionic](images/linkage.png)
 
-## 描画
+## Drawing
 
-### ジュリア集合
+### Julia set
 
-高速演算のWASMファイルをcffiでロードし、Pythonから呼び出し、ジュリア集合のリアルタイム計算を実現しました。
+Use cffi to load the WASM file compiled by C language to realize the real-time calculation of the Julia set.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fjulia_set.ipynb
 
-![ジュリア集合](images/julia.gif)
+![Julia Set](images/julia.gif)
 
 ### L-System
 
-文字列の入れ替えでフラクタルを描画します。
+Draws fractal patterns by using string replacement.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Flsystem.ipynb
 
 ![L-System](images/lsystem.png)
 
-### 反復関数系フラクタル
+### Iterative function system
 
-複数の三角形からフラクタルを描画します。
+An affine transformation is defined by multiple triangles, and fractal patterns are drawn with random iterations.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fifs.ipynb
 
 ![IFS](images/ifs.png)
 
-### バラの花
+### Roses
 
-Plotlyの3D描画機能でバラの花を作りました。
+Plote rosse flower by using Plotly's 3D plotting function.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fplots_01.ipynb
 
-![バラの花](images/rose.png)
+![Rose](images/rose.png)
 
-### Prime Climb
+### Prime Climb's Board
 
-[Prime Climb](https://mathforlove.com/games/prime-climb/)は掛け算や因数分解などを勉強するための算数ゲームです。このNotebookはBokehを使ってPrime Climbのゲームボードを描画します。
+[Prime Climb](https://mathforlove.com/games/prime-climb/) is an arithmetic game for learning multiplication and factoring. This program uses Bokeh to draw the game's board.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=plots%2Fprime_climb_draw.ipynb
 
 ![prime climb](images/prime_climb.png)
 
-## Graph
+## Graph Theory
 
-### 箱入り娘パズル
+### Klotski Puzzle
 
-SciPyの最短パス計算関数`dijkstra()`を利用して、箱入り娘パズルの最短解を求めます。
+Use SciPy's shortest path search algorithm `dijkstra()` to calculate the shortest solution to Klotski puzzle.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=graph%2Fklotski_solver.ipynb
 
-![箱入り娘パズル](images/klotski.png)
+![Klotski Puzzle](images/klotski.png)
 
 ## Simulation
 
-### 蟻群
+### Ant Colony
+
+Each ant communicates with other ants through chemicals that emit two odors to carry food home together.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fants.ipynb
 
-![蟻群](images/ants.gif)
+![Ant Colony](images/ants.gif)
 
-### Particle Life
+### Particle life
 
-粒子の間に重力と反重力を加え、運動方程式で位置を計算すると、面白い動きになりました。
+Apply gravitational and repulsive forces between various particles, and use the equation of motion to calculate the position and velocity of each particle to form interesting motion patterns.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=simulation%2Fparticle_life.ipynb
 
 ![Particle Life](images/particle_life.gif)
 
-## 幾何学
+## Geometry
 
-### 平面幾何学スクリプト
+### Plane Geometry Script
 
-SolveSpaceの幾何学エンジンを使った幾何学のスクリプトです。
+Plane geometry scripts written using SolveSpace's constrained geometry solver, itcan draw and compute plane geometries quickly.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=geometry%2Fgeometry_script.ipynb
 
-![幾何学スクリプト](images/geometry_script.png)
+![Face Geometry Script](images/geometry_script.png)
 
-### Strandbeest歩くロボット
+### Walking Bionic Beast
 
-SolveSpaceを使った幾何学のスクリプトで歩くロボットのアニメーションを作成しました。
+Use the plane geometry script above to calculate the walking animation of the bionic beast.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=geometry%2Fstrandbeest_walk.ipynb
 
-![Strandbeest歩くロボット](images/strandbeest_walk.gif)
+![Walking Bionic Beast](images/strandbeest_walk.gif)
 
-## 制御
+## Control
 
-### N重振り子制御
+### N-segment pendulum control
 
-SymPyでN重振り子の運動方程式を導出し、線形化させ、SciPyで制御ゲインの計算とODEソルバーでフィードバック制御をシミュレーションします。
+Use SymPy to calculate the equation of motion for an N-segment pendulum, linearizing it. Use SciPy to calculate the control gains and simulate the control system of an N-segment pendulum.
 
 https://ruoyu0088.github.io/jupyterlite_demos/lab?path=control%2Fpendulum_control.ipynb
 
