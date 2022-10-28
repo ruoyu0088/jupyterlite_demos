@@ -73,6 +73,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Frobot_walk.ipy
 
 ![テオ・ヤンセン機構](images/linkage.png)
 
+### 蟻コロニーで巡回セールスマン問題を解く
+
+各都市を1回訪れて最初の都市に戻る最短ルートを求める問題です。これはNP困難な問題であり、この例ではアリのコロニー アルゴリズムを使用して、問題の近似最適解を計算します。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Fant-colony-salesman.ipynb
+
+![巡回セールスマン問題](images/salesman.gif)
+
 ## 描画
 
 ### ジュリア集合

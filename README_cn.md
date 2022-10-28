@@ -77,6 +77,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Frobot_walk.ipy
 
 ![行走的仿生兽](images/linkage.png)
 
+### 用蚁群算法求解旅行推销员问题
+
+给定一系列城市和每对城市之间的距离，求解访问每一座城市一次并回到起始城市的最短回路。这是组合优化中的一个NP困难问题，本例使用蚁群算法计算该问题的近似最优解。
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Fant-colony-salesman.ipynb
+
+![salesman](images/salesman.gif)
+
 ## 绘图
 
 ### 朱利亚集合

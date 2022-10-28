@@ -77,6 +77,14 @@ https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Frobot_walk.ipy
 
 ![Walking Bionic](images/linkage.png)
 
+### Solving the Traveling Salesman Problem with the Antcolony Algorithm
+
+Given a series of cities and the distance between each pair of cities, find the shortest circuit that visits each city once and returns to the starting city. This is an NP-hard problem in combinatorial optimization, and this example uses the ant colony algorithm to calculate an approximate optimal solution to the problem.
+
+https://ruoyu0088.github.io/jupyterlite_demos/lab?path=optimize%2Fant-colony-salesman.ipynb
+
+![salesman](images/salesman.gif)
+
 ## Drawing
 
 ### Julia set
