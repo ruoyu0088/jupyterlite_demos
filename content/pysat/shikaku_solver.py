@@ -7,6 +7,7 @@ import ipycanvas
 from ipycanvas import Canvas
 from ipyevents import Event
 from bs4 import BeautifulSoup
+from sathelp import SATHelper
 
 def load_board_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -27,33 +28,6 @@ def load_board_from_html(html):
         board[-1].append(number)
     return board
 
-
-class VariableGenerator:
-    def __init__(self):
-        self.current = 1
-        
-    def __next__(self):
-        v = self.current
-        self.current += 1
-        return v
-    
-    def get_variables(self, n):
-        variables = list(range(self.current, self.current + n))
-        self.current += n
-        return variables
-    
-def dnf_to_cnf(dnf, new_vars):
-    zlist = []
-    cnf = []
-    for term in dnf:
-        z = next(new_vars)
-        zlist.append(z)
-        cnf.append([z] + [-v for v in term])
-        for v in term:
-            cnf.append([-z, v])
-    cnf.append(zlist)
-    return cnf     
-
 def mult_pair(n):
     for i in range(1, n+1):
         j = n // i
@@ -72,13 +46,6 @@ def generate_cell(rect):
     x, y, w, h = rect
     for i, j in product(range(w), range(h)):
         yield (x + i, y + j)
-        
-def exact_one(variables):
-    variables = list(variables)
-    cnf = [variables]
-    for v1, v2 in combinations(variables, 2):
-        cnf.append([-v1, -v2])
-    return cnf        
 
 def str_to_board(board_str):
     board = np.array([list(row) for row in board_str.strip().split()]).astype(int)    
@@ -94,13 +61,13 @@ class ShikakuSolver:
             
         height, width = board.shape
 
-        vg = VariableGenerator()
+        sat = SATHelper()
         rect_variables = {}
         for y, x in zip(*np.where(board > 0)):
             v = board[y, x]
             number_rects = {}
             for rect in generate_rectangle(x, y, v, width, height):
-                number_rects[next(vg)] = rect
+                number_rects[sat.next()] = rect
             rect_variables[x, y] = number_rects
 
         cells = defaultdict(set)
@@ -111,36 +78,32 @@ class ShikakuSolver:
 
         cell_variables = {}
         for key, value in cells.items():
-            cell_variables[key] = dict(zip(value, vg.get_variables(len(value))))
+            cell_variables[key] = dict(zip(value, sat.next(len(value))))
 
         self.rect_variables = rect_variables
         self.cell_variables = cell_variables
-        self.vg = vg
+        self.sat = sat
         self.board = board
 
     def solve(self):
-        sat = Solver()
+        sat = self.sat
         rect_variables = self.rect_variables
         cell_variables = self.cell_variables
         
         for value in rect_variables.values():
-            cnf = exact_one(value.keys())
-            sat.append_formula(cnf)
+            sat.exact_n(value.keys(), 1)
 
         for value in cell_variables.values():
-            cnf = exact_one(value.values())
-            sat.append_formula(cnf)
+            sat.exact_n(value.values(), 1)
 
         for pos, rects in rect_variables.items():
             dnf = []   
             for var_rect, rect in rects.items():
                 var_cells = [cell_variables[xc, yc][pos] for xc, yc in generate_cell(rect)]
                 dnf.append([var_rect] + var_cells)
-            cnf = dnf_to_cnf(dnf, self.vg)
-            sat.append_formula(cnf)
+            sat.dnf_to_cnf(dnf)
 
-        sat.solve()
-        sol = sat.get_model()
+        sol = sat.solve()
         if sol is not None:
             sol_rects = []
             for pos, rects in rect_variables.items():
