@@ -1,5 +1,5 @@
 from itertools import combinations
-
+from pysat.solvers import Solver
 
 def logic_expr_to_cnf_pattern(expr, symbol_list):
     from sympy import Not, to_cnf, Or
@@ -59,14 +59,18 @@ class SATHelper:
     def __init__(self):
         self.current = 1
         self.cnfs = []
+        self.solver = Solver()
 
     def __next__(self):
         v = self.current
         self.current += 1
         return v
 
-    def not_(self, v):
+    def not_(self, v):        
         self.extend([[-v]])
+        
+    def not_dnf(self, dnf):
+        self.extend([[-v for v in dnf]])
 
     def next(self, n=0):
         if n == 0:
@@ -118,7 +122,9 @@ class SATHelper:
         return self.dnf_to_cnf(dnfs, extend=extend)
 
     def extend(self, cnfs):
+        cnfs = [[int(v) for v in cnf] for cnf in cnfs]
         self.cnfs.extend(cnfs)
+        self.solver.append_formula(cnfs)
 
     def implies(self, A, B, extend=True):
         if isinstance(B, int):
@@ -170,9 +176,6 @@ class SATHelper:
         return self.implies_all(v, cnfs, extend=extend)
 
     def solve(self):
-        from pysat.solvers import Solver
-        self.solver = solver = Solver()
-        solver.append_formula(self.cnfs)
-        ret = solver.solve()
+        ret = self.solver.solve()
         if ret is not None:
-            return solver.get_model()
+            return self.solver.get_model()

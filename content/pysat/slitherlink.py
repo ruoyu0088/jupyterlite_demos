@@ -7,6 +7,7 @@ import ipycanvas
 from ipycanvas import Canvas
 import ipywidgets as ipw
 import bs4
+from sathelp import SATHelper
 
 
 def parse_board(html):
@@ -26,48 +27,6 @@ def parse_board(html):
     return board
 
 
-class VariableGenerator:
-    def __init__(self):
-        self.current = 1
-
-    def __next__(self):
-        v = self.current
-        self.current += 1
-        return v
-
-    def get_variables(self, n):
-        n = int(n)
-        variables = list(range(self.current, self.current + n))
-        self.current += n
-        return variables
-
-
-def dnf_to_cnf(dnf, new_vars):
-    zlist = []
-    cnf = []
-    for term in dnf:
-        z = next(new_vars)
-        zlist.append(z)
-        cnf.append([z] + [-v for v in term])
-        for v in term:
-            cnf.append([-z, v])
-    cnf.append(zlist)
-    return cnf
-
-
-def equals_to(variables, counts, new_vars):
-    dnfs = []
-    variables = [int(v) for v in variables]
-    index = list(range(len(variables)))
-    for c in counts:
-        for plus_index in itertools.combinations(index, c):
-            dnf = [-v for v in variables]
-            for i in plus_index:
-                dnf[i] *= -1
-            dnfs.append(dnf)
-    return dnf_to_cnf(dnfs, new_vars)
-
-
 class SlitherLinkSolver:
     result: list[int]
 
@@ -84,7 +43,7 @@ class SlitherLinkSolver:
         block_locations = set(itertools.product(range(h - 1), range(w - 1)))
         block_locations_sorted = sorted(block_locations)
 
-        vg = VariableGenerator()
+        sat = SATHelper()
 
         self.edges = {}
         for y, x in edge_locations_sorted:
@@ -92,7 +51,7 @@ class SlitherLinkSolver:
                 if dy >= 0 and dx >= 0:
                     y2, x2 = y + dy, x + dx
                     if (y2, x2) in edge_locations:
-                        self.edges[y, x, y2, x2] = next(vg)
+                        self.edges[y, x, y2, x2] = sat.next()
 
         self.dot_links = defaultdict(list)
 
@@ -117,17 +76,15 @@ class SlitherLinkSolver:
                 ]
             )
 
-        cnfs = []
         for links in self.dot_links.values():
-            cnfs.extend(equals_to(links, [0, 2], vg))
+            sat.equals_to(links, [0, 2])
 
         for key, val in self.block_links.items():
             c = board[key]
             if c != ".":
-                cnfs.extend(equals_to(val, [int(c)], vg))
+                sat.exact_n(val, int(c))
 
-        self.solver = Solver()
-        self.solver.append_formula(cnfs)
+        self.sat = sat
 
     def solve(self):
         def pop_path(edges, start):
@@ -149,10 +106,10 @@ class SlitherLinkSolver:
 
         m = []
         for i in range(100):
-            self.solver.solve()
-            m = self.solver.get_model()
+            m = self.sat.solve()
             if m is None:
                 m = []
+                break
             neighbours = defaultdict(set)
 
             for (y1, x1, y2, x2), v in self.edges.items():
@@ -179,8 +136,8 @@ class SlitherLinkSolver:
                 for key in keys:
                     if key in self.edges:
                         variables.append(self.edges[key])
-
-            self.solver.append_formula([[-v for v in variables]])
+                        
+            self.sat.not_dnf(variables)
 
         self.result = m
         return m
