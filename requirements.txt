@@ -7,14 +7,14 @@ pythreejs==2.4.1
 jupyter-bokeh==3.0.5
 ipyleaflet
 ipympl>=0.8.2
-jupyterlab~=3.4.7
+jupyterlab~=3.4.8
 jupyterlab-drawio
 jupyterlab-language-pack-fr-FR
 jupyterlab-language-pack-zh-CN
 jupyterlab-fasta>=3,<4
 jupyterlab-geojson>=3,<4
 jupyterlab_miami_nights
-jupyterlite==0.1.0b13
+jupyterlite==0.1.0b14
 jupyterlite-p5-kernel==0.1.0a12
 jupyterlite-xeus-lua==0.3.1
 jupyterlite-xeus-wren==0.2.1
